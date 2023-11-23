@@ -2,6 +2,7 @@ package wanted.budgetmanagement.app.budgets.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import wanted.budgetmanagement.app.Member.domain.Member;
@@ -28,5 +29,10 @@ public class Budgets {
     @JoinColumn(name = "category_id")
     private Category category;
 
-
+    @Builder
+    public Budgets(BigDecimal amount, Member member, Category category) {
+        this.amount = amount;
+        this.member = member;
+        this.category = category;
+    }
 }
